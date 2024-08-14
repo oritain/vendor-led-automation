@@ -1,0 +1,18 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://dev.provenorigin.com",
+      "localStorage": [
+        {
+          "name": "report-guid-time",
+          "value": "2024-07-31T15:16:21.032Z"
+        },
+        {
+          "name": "report-guid",
+          "value": "077c2020-72cb-4ef1-add5-bfbc9b5af647"
+        }
+      ]
+    }
+  ]
+}
