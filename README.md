@@ -17,3 +17,5 @@ Install Playwright browsers (can be done manually via 'npx playwright install')?
 
 `\vendor-led-automation\tests-examples\demo-todo-app.spec.js` already exists. Override it? **`No`**
 
+# Running the tests
+`npx playwright test tests/UIBasics.spec.js`
