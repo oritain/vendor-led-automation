@@ -52,12 +52,15 @@ test("Login using POM-2", async ({page})=>
 
 test.only("Login using POM-3", async ({page})=>
         {
-          
+           console.log("Username: " + process.env.LOGIN_USERNAME);
+           let str = process.env.LOGIN_PASSWORD;
+           console.log("Password: " + str.replace(str.substr(1,str.length-2), str.substr(1,str.length-2).replace(/./g,"*")));
+
            const loginPage = new LoginPage(page);
         
            await loginPage.navigate();
            await loginPage.AcceptCookies();
-           await loginPage.login('pbhosale@oritain.com', 'Password@1234');
+           await loginPage.login(process.env.LOGIN_USERNAME, process.env.LOGIN_PASSWORD);
            await page.waitForURL("https://dev.provenorigin.com/dashboard");
           
         // Add assertions to verify successful login

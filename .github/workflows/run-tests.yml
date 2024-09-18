@@ -1,0 +1,40 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:  
+  tests_e2e:
+    environment: main
+    runs-on: windows-latest    
+    steps:
+
+    - name: 'downloading vendor-led-automation'
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.AutoBuild_PAT }}
+        ref: main
+        path: ./vendor-led-automation
+
+    - name: Cache node modules
+      id: js-cache
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.npm
+        key: ${{ runner.os }}-cache-${{ hashFiles('vendor-led-automation/package-lock.json') }}-${{ hashFiles('vendor-led-automation/package.json') }}
+
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+    - name: Build
+      shell: pwsh
+      run: |
+        cd
+        dir        
+        cd vendor-led-automation        
+        npm ci
+        npx playwright install --with-deps
+        echo "TODO: run tests"
