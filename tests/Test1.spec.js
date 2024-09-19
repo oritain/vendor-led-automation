@@ -3,6 +3,8 @@ let webContext;
 
 test.beforeAll("To verify dashboard is displayed after user login", async ({browser})=>
     {
+       console.log(process.env.tamas);
+       
        const context = await browser.newContext();
        const page = await context.newPage();
        await page.goto("https://dev.provenorigin.com/");
