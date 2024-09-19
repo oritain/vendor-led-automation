@@ -1,7 +1,9 @@
 # vendor-led-automation
 Test automation framework using Playwright for end-to-end web application testing. This repo features robust test scripts, reusable components, and configurations to streamline automation. Ideal for validating UI functionality, cross-browser compatibility, and user workflows with Playwright's reliable API.
 
-# Installing playwright
+# Dependencies
+
+## playwright
 Start with:
 **`npm init playwright`**
 
@@ -16,6 +18,10 @@ Install Playwright browsers (can be done manually via 'npx playwright install')?
 `\vendor-led-automation\playwright.config.js` already exists. Override it? **`No`**
 
 `\vendor-led-automation\tests-examples\demo-todo-app.spec.js` already exists. Override it? **`No`**
+
+## az cli
+Windows x64:
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli#install-or-update
 
 # Running the tests
 `npx playwright test tests/UIBasics.spec.js`
