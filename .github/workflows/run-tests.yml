@@ -19,22 +19,24 @@ jobs:
         ref: main
         path: ./vendor-led-automation
 
-    - name: Cache node modules
-      id: js-cache
-      uses: actions/cache@v3
-      with:
-        path: |
-          ~/.npm
-        key: ${{ runner.os }}-cache-${{ hashFiles('vendor-led-automation/package-lock.json') }}-${{ hashFiles('vendor-led-automation/package.json') }}
+    # - name: Cache node modules
+    #   id: js-cache
+    #   uses: actions/cache@v3
+    #   with:
+    #     path: |
+    #       ~/.npm
+    #     key: ${{ runner.os }}-cache-${{ hashFiles('vendor-led-automation/package-lock.json') }}-${{ hashFiles('vendor-led-automation/package.json') }}
 
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+
+    # cmd.exe /c scripts\run_test_tamas.bat
+    - uses: actions/setup-node@v4        
     - name: Build
       shell: pwsh
       run: |
-        cd
-        dir        
-        cd vendor-led-automation        
+        cd                
+        echo github workspace: $env:GITHUB_WORKSPACE
+        cd $env:GITHUB_WORKSPACE
+        cd vendor-led-automation
+        dir
         npm ci
-        npx playwright install --with-deps
-        echo "TODO: run tests"
+        npx playwright install --with-deps        
